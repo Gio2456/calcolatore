@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabella Debito/PIL</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        table {
+            width: 40%; /* Ridotto per rendere la tabella più stretta */
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 12px; /* Aggiunto per bordi arrotondati */
+            overflow: hidden; /* Necessario per nascondere gli angoli arrotondati */
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 5px; /* Ridotto padding per rendere le celle più compatte */
+            text-align: left;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+        .home-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .home-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Tabella Debito/PIL</h1>
+
+<table>
+    <tr>
+        <th>Rapporto Debito/PIL </th>
+        <th>Tasso di Interesse (%)</th>
+        <th>Descrizione</th>
+    </tr>
+    <tr>
+        <td>0</td>
+        <td>-</td>
+        <td>Nessun debito, nessuna spesa per interessi. La situazione economica è stabile e il governo può investire in servizi pubblici senza oneri di debito.</td>
+    </tr>
+    <tr>
+        <td>0 - 30</td>
+        <td>0.8%</td>
+        <td>Debito contenuto; spese per interessi molto basse. Il governo ha una buona capacità di gestione del debito e può finanziare progetti di sviluppo senza gravare sul bilancio.</td>
+    </tr>
+    <tr>
+        <td>30 - 60</td>
+        <td>1.25%</td>
+        <td>Debito moderato; spese per interessi relativamente basse. Il governo deve iniziare a monitorare attentamente il debito, ma ha ancora margine per investimenti e spese sociali.</td>
+    </tr>
+    <tr>
+        <td>60 - 70</td>
+        <td>2%</td>
+        <td>Debito crescente; spese per interessi in aumento. La sostenibilità del debito inizia a diventare una preoccupazione, e il governo potrebbe dover considerare misure fiscali per mantenere l'equilibrio.</td>
+    </tr>
+    <tr>
+        <td>70 - 80</td>
+        <td>3%</td>
+        <td>Debito significativo; spese per interessi più elevate. Il governo deve affrontare una pressione crescente per gestire il debito, e potrebbero essere necessari tagli alla spesa o aumenti delle tasse.</td>
+    </tr>
+    <tr>
+        <td>80 - 90</td>
+        <td>4%</td>
+        <td>Debito elevato; spese per interessi che iniziano a pesare. La situazione economica è fragile, e il governo deve adottare politiche fiscali più rigorose per evitare un deterioramento della situazione.</td>
+    </tr>
+    <tr>
+        <td>90 - 100</td>
+        <td>5%</td>
+        <td>Debito alto; spese per interessi che influenzano il bilancio. Il governo deve considerare riforme strutturali per migliorare la sostenibilità del debito e garantire la stabilità economica.</td>
+    </tr>
+    <tr>
+        <td>100 - 110</td>
+        <td>6%</td>
+        <td>Debito molto alto; spese per interessi che richiedono attenzione. La capacità del governo di finanziare servizi pubblici è compromessa, e potrebbero essere necessarie misure di austerità.</td>
+    </tr>
+    <tr>
+        <td>110 - 120</td>
+        <td>7.5%</td>
+        <td>Debito critico; spese per interessi che necessitano di misure fiscali. Il governo deve affrontare una crescente pressione da parte dei mercati e dei cittadini per ridurre il debito e migliorare la gestione finanziaria.</td>
+    </tr>
+    <tr>
+        <td>120 - 130</td>
+        <td>9%</td>
+        <td>Debito molto critico; spese per interessi che possono portare a riforme. La situazione è insostenibile, e il governo potrebbe dover cercare assistenza internazionale o implementare drastiche misure di austerità.</td>
+    </tr>
+    <tr>
+        <td>130 - 140</td>
+        <td>12%</td>
+        <td>Debito estremamente elevato; spese per interessi che possono causare crisi. La fiducia degli investitori è in calo, e il governo deve affrontare il rischio di default o di ristrutturazione del debito.</td>
+    </tr>
+    <tr>
+        <td>≥ 140</td>
+        <td>14%</td>
+        <td>Situazione di crisi del debito; spese per interessi insostenibili. Il governo è in una posizione critica, con necessità urgenti di riforme e potenziale intervento internazionale per stabilizzare l'economia.</td>
+    </tr>
+</table>
+
+<!-- Bottone per tornare alla home -->
+<a href="index.html">
+    <button class="home-button">Torna alla Home</button>
+</a>
+
+</body>
+</html>
