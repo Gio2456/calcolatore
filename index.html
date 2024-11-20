@@ -126,9 +126,52 @@
     const evasione = parseFloat(document.getElementById("caz").value) || 0;
     const bonusp = parseFloat(document.getElementById("bonusp").value) || 0;
     const bonuspt = parseFloat(document.getElementById("bonuspt").value) || 0;
+    const debito = parseFloat(document.getElementById("debito").value) || 0;
+
+    const PIL = entrate*((100 + cicloE + tasse + situazioneAA + evasione + bonusp)/100) + bonuspt;
+    const debPil = (debito/PIL)*100;
+    let spesadeb = 0;
+
+    if (debPil === 0) {
+    // nulla
+    } else if (debPil > 0 && debPil < 30) {
+    // interessi del 0.8%
+    spesadeb = PIL*(0.8/100);
+    } else if (debPil >= 30 && debPil < 60) {
+    // interessi del 1.25%
+    spesadeb = PIL*(1.25/100);
+    } else if (debPil >= 60 && debPil < 70) {
+    // interessi del 2%
+    spesadeb = PIL*(2/100);
+    } else if (debPil >= 70 && debPil < 80) {
+    // interessi del 3%
+    spesadeb = PIL*(3/100);
+    } else if (debPil >= 80 && debPil < 90) {
+    // interessi del 4%
+    spesadeb = PIL*(4/100);
+    } else if (debPil >= 90 && debPil < 100) {
+    // interessi del 5%
+    spesadeb = PIL*(5/100);
+    } else if (debPil >= 100 && debPil < 110) {
+    // interessi del 6%
+    spesadeb = PIL*(6/100);
+    } else if (debPil >= 110 && debPil < 120) {
+    // interessi del 7.5%
+    spesadeb = PIL*(7.5/100);
+    } else if (debPil >= 120 && debPil < 130) {
+    // interessi del 9%
+    spesadeb = PIL*(9/100);
+    } else if (debPil >= 130 && debPil < 140) {
+    // interessi del 12%
+    spesadeb = PIL*(12/100);
+    } else if (debPil >= 140) {
+    // interessi del 14%
+    spesadeb = PIL*(14/100);
+    }
 
     const bilancio = ((cicloE + tasse + situazioneAA + welfare + esercito + infrastrutture + burocrazia + evasione + bonusp) / 100) * entrate;
-    const saldo = entrate + bilancio + bonuspt;
+    const saldo = entrate + bilancio + bonuspt - spesadeb;
+
 
     const Welfare = (Math.abs(welfare)/100) * entrate;
     const Esercito = (Math.abs(esercito)/100) * entrate;
@@ -136,16 +179,18 @@
     const Burocrazia = (Math.abs(burocrazia)/100) * entrate;
 
     document.getElementById("Risultato").innerHTML = saldo.toFixed(2);
+    document.getElementById("debpil").innerHTML = debPil.toFixed(2);
 
             // Dati per il grafico
-            const labels = ['Welfare', 'Esercito', 'Infrastrutture', 'Burocrazia', 'Entrate'];
-            const data = [Welfare, Esercito, Infrastrutture, Burocrazia, saldo];
+            const labels = ['Welfare', 'Esercito', 'Infrastrutture', 'Burocrazia', 'Entrate', 'Interessi sul debito'];
+            const data = [Welfare, Esercito, Infrastrutture, Burocrazia, saldo, spesadeb];
             const colors = [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
                 'rgba(255, 206, 86, 0.2)',
                 'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)'
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(0, 5, 255, 0.2)'
             ];
 
             // Rimuovi l'elemento canvas esistente se presente
@@ -293,10 +338,14 @@
                 <label for="bonuspt">Bonus pt.</label>
                 <input type="number" id="bonuspt" name="bonuspt" value="0">
 
+                <label for="debito"> Debito pt.</label>
+                <input type="number" id="debito" name="debito" value="0">
+
 
             </fieldset>
             <button type="button" onclick="calcola()">Calcola</button>
-            <output id="Risultato">Risultato</output>
+            <output id="Risultato">Entrate</output>
+            <output id="debpil">Rapporto debito/Pil</output>
         </form>
     </main>
 </body>
